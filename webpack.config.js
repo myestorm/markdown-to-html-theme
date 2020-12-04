@@ -3,6 +3,7 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const WebpackReadPages = require('./webpack.read.pages');
 
@@ -15,7 +16,13 @@ webpackPlugins = webpackPlugins.concat([
   }),
   new FriendlyErrorsWebpackPlugin(),
   new CleanWebpackPlugin({
-    cleanOnceBeforeBuildPatterns: ['!config.json']
+    cleanOnceBeforeBuildPatterns: ['dist/*.*', '!config.json']
+  }),
+  new CopyWebpackPlugin({
+    patterns: [{
+      from: path.resolve(__dirname, 'public'),
+      to: path.resolve(__dirname, 'dist')
+    }]
   })
 ])
 
@@ -28,7 +35,7 @@ module.exports = {
     filename: 'scripts/[name]-[fullhash:6].js'
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js', '.scss' ],
+    extensions: [ '.tsx', '.ts', '.js', '.scss', '.css' ],
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
@@ -42,7 +49,8 @@ module.exports = {
     })],
     splitChunks: {
       chunks: 'all',
-      name: 'vendor'
+      name: 'vendor',
+      minSize: 3000
     }
   },
   devServer: {
@@ -56,11 +64,39 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(sa|sc|c)ss$/i,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader'
+        ]
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: './',
+              outputPath: 'images',
+              name: '[name].[fullhash:6].[ext]',
+              esModule: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff|woff2|svg|eot|ttf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: './',
+              outputPath: 'font',
+              name: '[name].[fullhash:6].[ext]',
+              esModule: true
+            }
+          }
         ]
       },
       {

@@ -1,5 +1,7 @@
 node_modules
 dist
+src/assets/font
+src/assets/plugins
 
 webpack.assets.list.js
 webpack.config.js
