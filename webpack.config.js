@@ -50,7 +50,7 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
       name: 'vendor',
-      minSize: 3000
+      minSize: 30000
     }
   },
   devServer: {

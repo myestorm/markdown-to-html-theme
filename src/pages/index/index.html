@@ -6,12 +6,34 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-  <%- require('ejs-webpack-loader!../../components/header.html')({
-    name: 'zhangsan'
-  })%>
-  <main>
-    index
-  </main>
-  <%- require('ejs-webpack-loader!../../components/footer.html')()%>
+  <div class="totonoo--header">
+    <div class="logo">
+      <a href="/"><i class="logo-icon"></i><h1>Totonoo<small>.com</small></h1></a>
+    </div>
+    <div class="top-nav">
+      <nav class="top-nav-list">
+        <ul>
+          <li><a href="/">首页</a></li>
+          <li><a href="/">文集</a></li>
+          <li><a href="/">标签</a></li>
+          <li><a href="/">时光轴</a></li>
+          <li><a href="/">关于我们</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="top--search">
+      <div class="top-search-input">
+        <label>
+          <i class="iconfont icon-search"></i>
+          <input placeholder="Search...">
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="totonoo--body">
+    <div class="totonoo-layout">
+
+    </div>
+  </div>
 </body>
 </html>

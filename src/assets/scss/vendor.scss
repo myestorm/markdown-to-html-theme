@@ -13,3 +13,21 @@ html, body {
     font-family: $--font-family;
   }
 }
+
+.#{$--prefix}header {
+  width: 100%;
+  height: $--header-height;
+  box-shadow: 0 3px 8px 0 rgba(116, 129, 141, 0.1);
+  border-bottom: 1px solid #d4dadf;
+  background-color: $--color-white;
+  display: flex;
+  .top-nav {
+    flex: 1 1 auto;
+    margin: 0px 88px;
+    display: block;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    max-width: 750px;
+  }
+}
