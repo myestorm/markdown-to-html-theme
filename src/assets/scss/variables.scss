@@ -8,5 +8,13 @@ $--color-white: #ffffff;
 $--color-gray: #595959;
 
 $--bg-color: #fafafa;
+$--bg-color-1: #f5f5f5;
 
-$--header-height: 64px;
+$--transition: all .35s ease;
+
+$--max-width: 1448px;
+$--green-dragon-width: 298px;
+$--white-tiger-width: 258px;
+$--main-width: 780px;
+$--min-space: 4px;
+$--header-height: 20 * $--min-space;

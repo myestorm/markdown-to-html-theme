@@ -72,14 +72,14 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpe?g|gif)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              publicPath: './',
+              publicPath: '../images/',
               outputPath: 'images',
-              name: '[name].[fullhash:6].[ext]',
+              name: '[name].[hash:6].[ext]',
               esModule: true
             }
           }
@@ -91,9 +91,9 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              publicPath: './',
+              publicPath: '../images/',
               outputPath: 'font',
-              name: '[name].[fullhash:6].[ext]',
+              name: '[name].[hash:6].[ext]',
               esModule: true
             }
           }

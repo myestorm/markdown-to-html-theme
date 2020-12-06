@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "7542723",
+      "name": "24gl-tags3",
+      "font_class": "tags",
+      "unicode": "e87f",
+      "unicode_decimal": 59519
+    },
+    {
+      "icon_id": "8017574",
+      "name": "timeline",
+      "font_class": "timeline",
+      "unicode": "e6c0",
+      "unicode_decimal": 59072
+    },
+    {
+      "icon_id": "13932656",
+      "name": "about-the-program-2",
+      "font_class": "aboutus",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
       "icon_id": "18640924",
       "name": "navicon",
       "font_class": "topmenu",
