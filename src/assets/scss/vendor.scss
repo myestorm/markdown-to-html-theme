@@ -319,3 +319,22 @@ body {
     }
   }
 }
+
+.#{$--prefix}footer {
+  width: $--main-width;
+  margin: 0 auto;
+  text-align: center;
+  padding: $--min-space * 5 0;
+  font-size: $--min-space * 3;
+  color: rgba(0,0,0, 0.4);
+  border-top: 1px solid $--color-bg;
+  a {
+    text-decoration: none;
+    color: rgba(0,0,0, 0.4);
+    transition: $--transition;
+    margin: 0 $--min-space;
+    &:hover {
+      color: $--color-gray;
+    }
+  }
+}

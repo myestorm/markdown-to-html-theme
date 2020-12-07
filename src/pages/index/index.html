@@ -6,43 +6,9 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-  <div class="totonoo--header" id="totonoo--top-header">
-    <div class="wrapper">
-      <div class="totonoo--flying-wing">
-        <div class="green-dragon">
-          <div class="top-logo">
-            <a href="/">
-              <i class="logo-icon"></i>
-              <h1>Totonoo<small>.com</small></h1>
-            </a>
-          </div>
-        </div>
-        <div class="old-ox">
-          <div class="top-nav">
-            <nav class="top-nav-list">
-              <ul>
-                <li class="current"><a href="/"><i class="iconfont icon-home"></i>首页</a></li>
-                <li><a href="/"><i class="iconfont icon-book-1"></i>文集</a></li>
-                <li><a href="/"><i class="iconfont icon-tags"></i>标签</a></li>
-                <li><a href="/"><i class="iconfont icon-timeline"></i>时光轴</a></li>
-                <li><a href="/"><i class="iconfont icon-aboutus"></i>关于我们</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-        <div class="white-tiger">
-          <div class="top-search">
-            <div class="top-search-input">
-              <label>
-                <i class="iconfont icon-search"></i>
-                <input placeholder="Search...">
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <%- require('ejs-webpack-loader!../../components/header.html')({
+    current: 0
+  })%>
   <div class="totonoo--body">
     <div class="wrapper">
       <div class="totonoo--flying-wing">
