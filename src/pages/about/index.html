@@ -6,12 +6,139 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-  <%- require('ejs-webpack-loader!../../components/header.html')({
-    name: 'zhangsan'
-  })%>
-  <main>
-    index
-  </main>
-  <%- require('ejs-webpack-loader!../../components/footer.html')()%>
+  <div class="wrapper" style="width: 768px; padding: 40px 0;">
+    <div class="totonoo--markdown">
+      <h1>What is Markdown?</h1>
+      <h2>What is Markdown?</h2>
+      <h3>What is Markdown?</h3>
+      <h4>What is Markdown?</h4>
+      <h5>What is Markdown?</h5>
+      <h6>What is Markdown?</h6>
+      <p>Markdown is a way to style text on the web. You control the display of the document; formatting words as bold or italic, adding images, and creating lists are just a few of the things we can do with Markdown. Mostly, Markdown is just regular text with a few non-alphabetic characters thrown in, like # or *.</p>
+      <p><strong>What you will learn:</strong></p>
+
+      <ul>
+        <li>How the Markdown format makes styled collaborative editing easy</li>
+        <li>How Markdown differs from traditional formatting approaches</li>
+        <li>How to use Markdown to format text</li>
+        <li>How to leverage GitHub’s automatic Markdown rendering</li>
+        <li>How to apply GitHub’s unique Markdown extensions</li>
+      </ul>
+
+      <h2><a class="header-anchor" href="#%E4%B8%BE%E4%BE%8B%E8%80%83%E8%AF%95">¶</a>Headers</h2>
+      <p><a href="http://daringfireball.net/projects/markdown/">Markdown</a> is a way to style text on the web. You control the display of the document; formatting words as bold or italic, adding images, and creating lists are just a few of the things we can do with Markdown. Mostly, Markdown is just regular text with a few non-alphabetic characters thrown in, like <code class="language-plaintext highlighter-rouge">#</code> or <code class="language-plaintext highlighter-rouge">*</code>.</p>
+
+      <p>GitHub supports many extras in Markdown that help you reference and link to people. If you ever want to direct a comment at someone, you can prefix their name with an @ symbol: Hey <a href="https://github.com/kneath">@kneath</a> — love your sweater!</p>
+
+      <h3>Emphasis</h3>
+
+      <p>But I have to admit, tasks lists are my favorite:</p>
+
+      <ul class="task-list">
+        <li class="task-list-item">
+          <input type="checkbox" class="task-list-item-checkbox" checked="" disabled=""> This is a complete item
+          <ul class="task-list">
+            <li class="task-list-item">
+            <input type="checkbox" class="task-list-item-checkbox" checked="" disabled=""> This is a complete item</li>
+            <li class="task-list-item">
+            <input type="checkbox" class="task-list-item-checkbox" disabled=""> This is an incomplete item</li>
+          </ul>
+        </li>
+        <li class="task-list-item">
+        <input type="checkbox" class="task-list-item-checkbox" disabled=""> This is an incomplete item</li>
+      </ul>
+      <p>When you include a task list in the first comment of an Issue, you will see a helpful progress bar in your list of issues. It works in Pull Requests, too!</p>
+      <p>And, of course emoji! <strong>测试加粗</strong><em>Sometimes you want bullet points 测试斜体</em></p>
+
+      <p>
+        <del>中划线:And if you have sub points, put two spaces before the dash or star</del>
+        <hr>
+        <blockquote>
+          Here’s an overview of Markdown syntax that you can use anywhere on GitHub.com or in your own text files.<br>
+          Note that some features of GitHub Flavored<br>
+          GitHub.com uses its own version of the Markdown syntax that provides an
+          </blockquote>
+      </p>
+      <p>
+        <blockquote>
+          Here’s an overview of Markdown syntax that you can use anywhere on GitHub.com or in your own text files.
+          </blockquote></p>
+      <p><img src="https://zebra-common-system-pre.oss-cn-shanghai.aliyuncs.com/bmdev/025a21b0-fa9b-4cfb-8788-d030b2014361.png" alt="单独"></p>
+
+      <h4>Unordered</h4>
+
+      <p>Sometimes you want numbered lists:</p>
+      <ol>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+      </ol>
+      <p>Sometimes you want bullet points:</p>
+      <h5>Ordered</h5>
+      <ul>
+        <li>Start a line with a star</li>
+        <li>Profit!</li>
+      </ul>
+      <p>Alternatively,</p>
+      <ul>
+        <li>Dashes work just as well</li>
+        <li>And if you have sub points, put two spaces before the dash or star:
+          <ul>
+            <li>Like this</li>
+            <li>And this</li>
+          </ul>
+        </li>
+      </ul>
+      <h6>GitHub Flavored Markdown</h6>
+      <p>GitHub.com uses its own version of the Markdown syntax that provides an additional set of useful features, many of which make it easier to work with content on GitHub.com.</p>
+
+      <p>Note that some features of GitHub Flavored Markdown are only available in the descriptions and comments of Issues and Pull Requests. These include @mentions as well as references to SHA-1 hashes, Issues, and Pull Requests. Task Lists are also available in Gist comments and in Gist Markdown files.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>First Header</th>
+            <th>Second Header</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Content from cell 1</td>
+            <td>Content from cell 2</td>
+          </tr>
+          <tr>
+            <td>Content in the first column</td>
+            <td>Content in the second column</td>
+          </tr>
+        </tbody>
+      </table>
+
+<pre><code class="language-javascript">console.log('1')
+setTimeout(() =&gt; {
+  console.log('2')
+}, 0)
+Promise.resolve().then(() =&gt; {
+  console.log('3')
+}).then(() =&gt; {
+  console.log('4')
+})
+console.log('5')
+
+// 输出 -&gt; 1 5 3 4 2
+</code></pre><pre><code class="language-javascript">console.log('1')
+new Promise((resolve) =&gt; {
+  console.log('2')
+  setTimeout(()=&gt;{
+    console.log('4')
+    resolve()
+    }, 0)
+}).then(() =&gt; {
+  console.log('3')
+})
+
+// 输出 -&gt; 1 2 4 3
+</code></pre>
+    </div>
+  </div>
 </body>
 </html>

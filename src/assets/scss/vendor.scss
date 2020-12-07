@@ -14,6 +14,7 @@ html, body {
 }
 body {
   background: linear-gradient(to right, #f5f5f5 0%,#f5f5f5 50%, #ffffff 50%);
+  color: $--color-black-light;
 }
 
 ::-webkit-scrollbar {
@@ -136,7 +137,7 @@ body {
           transition: $--transition;
           white-space: nowrap;
           &:hover {
-            background-color: $--bg-color-1;
+            background-color: $--color-bg;
             a {
               color: $--color-primary;
             }
@@ -266,10 +267,6 @@ body {
 .#{$--prefix}article {
   margin: 0 auto;
   min-height: 100%;
-  pre {
-    width: 100%;
-    overflow: auto;
-  }
 }
 .#{$--prefix}article-nav {
   width: 100%;
@@ -294,7 +291,7 @@ body {
       position: relative;
       left: -2px;
       &:hover {
-        background-color: $--bg-color-1;
+        background-color: $--color-bg;
       }
       &.current {
         border-left-color: $--color-primary;

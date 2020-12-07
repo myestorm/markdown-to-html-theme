@@ -122,9 +122,26 @@
         </div>
         <div class="old-ox">
           <div class="totonoo--main">
-            <div class="totonoo--article">
+            <div class="totonoo--article totonoo--markdown">
               <h1>初探typescript</h1>
-              <h2 id="%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><a class="header-anchor" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87">¶</a> 前期准备</h2><p>Typescript出来很久了，也天天被人吹爆了，耳朵都快磨起茧子了。最近项目做的快，有点空闲时间，就打算学一下。学习之前先搜索了2个关键词“为什么要用Typescript”和“为什么不用Typescript”，看了一圈，挺有意思。 总结一下我理解的结论：</p><ol><li>ts是超集可能不准确，没觉得多在哪里？类型检查，装饰器，JS本身也不需要这个，弱语言自有他的灵活性，何苦非得变他；</li><li>ts最终的运行还是要编译成js，但是查了一下开发过程中可以使用ts-node；</li><li>如果是开发网页，我觉得没有必要选择ts，业务本身就是灵活多变的，跟js很搭；</li><li>如果是开发框架和通用组件，是可以选择ts的，毕竟框架都是给别人用的，输入输出应该明确；</li><li>如果是node开发，也可以选择，不会java可以过下java的瘾。</li></ol><p>综上所述，我把学习目标先定一下，用node写一简单的评论系统（Ts + Koa + Typeorm + MongoDB）。如果把这个当成教程来看，是需要有前置条件的，假设会node开发，懂基本的开发流程和语法，对ES6有了解。我使用的win10操作系统。</p><h2 id="%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><a class="header-anchor" href="#%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">¶</a> 搭建开发环境</h2><p>一、新建目录 <code>totonoo_comments</code> 二、在 <code>totonoo_comments</code> 下打开cmd，准备开始安装依赖</p><pre><code class="language-shell">npm init -y # 初始化node项目
+              <h2 id="%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87"><a class="header-anchor"
+                  href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87">¶</a> 前期准备</h2>
+              <p>
+                Typescript出来很久了，也天天被人吹爆了，耳朵都快磨起茧子了。最近项目做的快，有点空闲时间，就打算学一下。学习之前先搜索了2个关键词“为什么要用Typescript”和“为什么不用Typescript”，看了一圈，挺有意思。
+                总结一下我理解的结论：</p>
+              <ol>
+                <li>ts是超集可能不准确，没觉得多在哪里？类型检查，装饰器，JS本身也不需要这个，弱语言自有他的灵活性，何苦非得变他；</li>
+                <li>ts最终的运行还是要编译成js，但是查了一下开发过程中可以使用ts-node；</li>
+                <li>如果是开发网页，我觉得没有必要选择ts，业务本身就是灵活多变的，跟js很搭；</li>
+                <li>如果是开发框架和通用组件，是可以选择ts的，毕竟框架都是给别人用的，输入输出应该明确；</li>
+                <li>如果是node开发，也可以选择，不会java可以过下java的瘾。</li>
+              </ol>
+              <p>综上所述，我把学习目标先定一下，用node写一简单的评论系统（Ts + Koa + Typeorm +
+                MongoDB）。如果把这个当成教程来看，是需要有前置条件的，假设会node开发，懂基本的开发流程和语法，对ES6有了解。我使用的win10操作系统。</p>
+              <h2 id="%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><a class="header-anchor"
+                  href="#%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">¶</a> 搭建开发环境</h2>
+              <p>一、新建目录 <code>totonoo_comments</code> 二、在 <code>totonoo_comments</code> 下打开cmd，准备开始安装依赖</p>
+              <pre><code class="language-shell">npm init -y # 初始化node项目
                 npm install typescript --save-dev # 添加typescript
                 npm install @types/node --save-dev # 添加node.d.ts
                 npm install ts-node --save-dev # 添加ts-node 可以直接执行ts文件
@@ -134,7 +151,9 @@
                 
                 # 初始化 ts配置
                 npx tsc --init --rootDir src --outDir dist --esModuleInterop --resolveJsonModule --lib es6,dom  --module commonjs
-                </code></pre><p>三、在 <code>package.json</code> 中添加2个任务</p><pre><code class="language-json">{
+                </code></pre>
+              <p>三、在 <code>package.json</code> 中添加2个任务</p>
+              <pre><code class="language-json">{
                   &quot;name&quot;: &quot;totonoo_comments&quot;,
                   &quot;version&quot;: &quot;1.0.0&quot;,
                   &quot;description&quot;: &quot;&quot;,
@@ -155,7 +174,9 @@
                     &quot;typescript&quot;: &quot;^4.0.5&quot;
                   }
                 }
-                </code></pre><p>四、新建目录src和src/index.ts、src/operations.ts文件</p><pre><code class="language-typescript">// operations.ts
+                </code></pre>
+              <p>四、新建目录src和src/index.ts、src/operations.ts文件</p>
+              <pre><code class="language-typescript">// operations.ts
                 export const add = (x: number, y: number): number =&gt; {
                   return x + y
                 }
@@ -174,11 +195,14 @@
                   mul,
                   div
                 }
-                </code></pre><pre><code class="language-typescript">import { add } from './operations'
+                </code></pre>
+              <pre><code class="language-typescript">import { add } from './operations'
                 
                 const result = add(1, 3)
                 console.log(result)
-                </code></pre><p>五、跑一下结果</p><pre><code class="language-shell">npm run dev # 启动开发服务 出现以下界面 说明成功了
+                </code></pre>
+              <p>五、跑一下结果</p>
+              <pre><code class="language-shell">npm run dev # 启动开发服务 出现以下界面 说明成功了
                 # &gt; ts_demo@1.0.0 dev D:\temp\ts_demo
                 # &gt; nodemon --watch src/**/*.ts --exec &quot;ts-node&quot; src/index.ts
                 
@@ -190,7 +214,9 @@
                 # 4
                 # [nodemon] clean exit - waiting for changes before restart
                 
-                </code></pre><p>六、任意修改 <code>index.ts</code> 文件，观察一下cmd内容变化，有变化证明监听也成功了。 七、在 TypeScript 中加入 ESLint</p><pre><code class="language-shell"># 同一cmd 先用ctrl+c退出当前任务
+                </code></pre>
+              <p>六、任意修改 <code>index.ts</code> 文件，观察一下cmd内容变化，有变化证明监听也成功了。 七、在 TypeScript 中加入 ESLint</p>
+              <pre><code class="language-shell"># 同一cmd 先用ctrl+c退出当前任务
                 npm install eslint --save-dev # 添加 eslint
                 npm install @typescript-eslint/parser --save-dev # 添加eslint ts解析器
                 npm install @typescript-eslint/eslint-plugin --save-dev # 添加 eslint ts插件
@@ -198,7 +224,9 @@
                 
                 # 也可以一次性安装
                 # npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-config-alloy --save-dev
-                </code></pre><p>在项目的根目录下创建eslint配置文件 <code>.eslintrc.js</code> ，内容如下：</p><pre><code class="language-javascript">module.exports = {
+                </code></pre>
+              <p>在项目的根目录下创建eslint配置文件 <code>.eslintrc.js</code> ，内容如下：</p>
+              <pre><code class="language-javascript">module.exports = {
                   extends: [
                     'alloy',
                     'alloy/typescript',
@@ -222,7 +250,9 @@
                     '@typescript-eslint/explicit-member-accessibility': 'off'
                   }
                 }
-                </code></pre><p><code>package.json</code> 添加一个任务：</p><pre><code class="language-json">{
+                </code></pre>
+              <p><code>package.json</code> 添加一个任务：</p>
+              <pre><code class="language-json">{
                  &quot;scripts&quot;: {
                     &quot;start&quot;: &quot;npm run build&quot;,
                     &quot;build&quot;: &quot;npm run eslint &amp;&amp; tsc -p .&quot;,
@@ -231,9 +261,13 @@
                     &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
                   },
                 }
-                </code></pre><p>在 <code>index.ts</code> 中加入 <code>var a = 1</code> ，然后运行下 <code>npm run eslint</code> 就可以看到有错误提示了。 build任务中加入了打包之前先做一下eslint。</p><p>到此为止，一个基本的开发环境已经跑起来了。</p>
+                </code></pre>
+              <p>在 <code>index.ts</code> 中加入 <code>var a = 1</code> ，然后运行下 <code>npm run eslint</code> 就可以看到有错误提示了。
+                build任务中加入了打包之前先做一下eslint。</p>
+              <p>到此为止，一个基本的开发环境已经跑起来了。</p>
             </div>
           </div>
+          <%- require('ejs-webpack-loader!../../components/footer.html')()%>
         </div>
         <div class="white-tiger">
           <div class="totonoo--article-nav" id="totonoo--article-nav">

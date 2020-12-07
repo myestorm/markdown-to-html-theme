@@ -1,0 +1,108 @@
+.#{$--prefix}markdown {
+  line-height: 1.7;
+  @for $i from 1 through 6 {
+    h#{$i} {
+      @include reset();
+      font-size: $--min-space * (9 - $i);
+      line-height: $--min-space * (9 - $i) * 1.618;
+      padding: $--min-space * 2 0;
+      font-weight: bold;
+    }
+  }
+  .header-anchor {
+    display: none;
+  }
+  img {
+    max-width: 100%;
+  }
+  .language-plaintext {
+    background-color: $--color-2;
+    border-radius: $--min-space;
+    padding: 0 $--min-space * 2;
+    color: $--color-gray;
+  }
+  pre {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: $--min-space;
+    overflow-x: auto;
+  }
+  hr {
+    height: 1px;
+    display: block;
+    border: 0;
+    background-color: $--color-2;
+    border-radius: 1px;
+    overflow: hidden;
+  }
+  del {
+    color: $--color-gray-light;
+  }
+  blockquote {
+    @include reset();
+    position: relative;
+    padding: 50px 60px;
+    background-color: $--color-bg;
+    border-radius: $--min-space;
+    &::before {
+      content: open-quote;
+      position: absolute;
+      font-family: Arial, sans-serif;
+      color: $--color-gray-light;
+      left: 20px;
+      top: 12px;
+      font-size: 80px;
+      height: 40px;
+      line-height: 80px;
+      overflow: hidden;
+    }
+    &::after {
+      content: close-quote;
+      position: absolute;
+      font-family: Arial, sans-serif;
+      color: $--color-gray-light;
+      right: 20px;
+      bottom: 12px;
+      font-size: 80px;
+      height: 40px;
+      line-height: 80px;
+      overflow: hidden;
+    }
+  }
+  table {
+    max-width: 100%;
+    border: 1px solid $--color-2;
+    border-collapse: collapse;
+    th, td {
+      border: 1px solid $--color-2;
+      padding: $--min-space $--min-space * 2;
+    }
+    th {
+      background-color: $--color-bg;
+      text-align: left;
+    }
+  }
+  a {
+    @include textHoverLine();
+    display: inline-block;
+    color: $--color-primary;
+    transition: $--transition;
+    text-decoration: none;
+  }
+  ul, ol {
+    padding: 0 0 0 $--min-space * 4;
+    ul, ol {
+      padding: 0 $--min-space * 4;
+    }
+  }
+  .task-list {
+    padding: 0;
+    list-style: none;
+    ul, ol {
+      padding: 0 $--min-space * 7;
+    }
+  }
+  div.code-toolbar > .toolbar .toolbar-item {
+    margin-right: $--min-space;
+  }
+}
