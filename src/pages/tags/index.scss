@@ -1,4 +1,28 @@
 @import '@assets/scss/variables.scss';
 @import '@assets/scss/mixins.scss';
 @import '@assets/scss/vendor.scss';
-@import '@assets/scss/markdown.scss';
+
+.#{$--prefix}tags {
+  ul, li {
+    @include reset();
+  }
+  > ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: $--min-space * 2 0 $--min-space * 10;
+    > li > a {
+      display: block;
+      text-decoration: none;
+      background-color: rosybrown;
+      color: $--color-white;
+      white-space: nowrap;
+      padding: $--min-space $--min-space * 4;
+      font-size: $--min-space * 4;
+      position: relative;
+      span {
+        font-size: $--min-space * 3;
+        margin-left: $--min-space;
+      }
+    }
+  }
+}

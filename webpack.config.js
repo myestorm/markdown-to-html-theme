@@ -15,9 +15,7 @@ webpackPlugins = webpackPlugins.concat([
     filename: 'styles/[name].[fullhash:6].css'
   }),
   new FriendlyErrorsWebpackPlugin(),
-  new CleanWebpackPlugin({
-    cleanOnceBeforeBuildPatterns: ['dist/*.*', '!config.json']
-  }),
+  new CleanWebpackPlugin(),
   new CopyWebpackPlugin({
     patterns: [{
       from: path.resolve(__dirname, 'public'),
@@ -35,7 +33,7 @@ module.exports = {
     filename: 'scripts/[name]-[fullhash:6].js'
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js', '.scss', '.css' ],
+    extensions: ['.tsx', '.ts', '.js', '.scss', '.css'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     alias: {
       '@': path.resolve(__dirname, 'src'),

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.ico">
 </head>
 <body>
   <%- require('../../components/header.html')({
@@ -88,47 +89,59 @@
         </div>
         <div class="old-ox">
           <div class="totonoo--main">
-            <div class="totonoo--breadcrumb">
+            <%- require('../../components/breadcrumb.html')({
+              list: [{
+                title: '标签'
+              }]
+            })%>
+            <div class="totonoo--tags">
               <ul>
-                <li><a href="/"><i class="iconfont icon-home"></i></a></li>
-                <li class="separate"><i class="iconfont icon-arrow-right"></i></li>
-                <li><a href="/categories.html">基础教程</a></li>
+                <% 
+                const str = 'typescript 笔记 ts css html 博客模板 量子学派 前端框架 vue react node JAVASCRIPT 布局 公式之美 数学与生活 设计 通用法则 项目准备 ts类型 范例 语法 学习总结 html标签 网页 ajax dom 前端学习 线路图 样式 元素 全局 安装 Visual Studio Code GIT 快速入门 Object CSS3 grid 移动端 1px 媒体查询 物理像素 像素 if switch 流程控制 事件循环 Event Loop 并发模型 编码 解码 base64 url编码 encodeURIComponent decodeURIComponent 防抖 节流 debounce throttle css3文字效果 闪光滑过 扫光效果 rem 响应式 编写可维护的JavaScript 编程规则 代码规范 typescript 笔记 ts css html 博客模板 量子学派 前端框架 vue react node JAVASCRIPT 布局 公式之美 数学与生活 设计 通用法则 项目准备 ts类型 范例 语法 学习总结 html标签 网页 ajax dom 前端学习 线路图 样式 元素 全局 安装 Visual Studio Code GIT 快速入门 Object CSS3 grid 移动端 1px 媒体查询 物理像素 像素 if switch 流程控制 事件循环 Event Loop 并发模型 编码 解码 base64 url编码 encodeURIComponent decodeURIComponent 防抖 节流 debounce throttle css3文字效果 闪光滑过 扫光效果 rem 响应式 编写可维护的JavaScript 编程规则 代码规范'; 
+                const arr = str.split(' ');
+                const randomRange = (lowerVal, upperVal) => {
+                  const choices = upperVal - lowerVal + 1
+                  return Math.floor(Math.random() * choices + lowerVal)
+                }
+                const randomHexColor = () => {
+                  return '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).substr(-6);
+                 }
+                %>
+                <% for (let i = 0; i < arr.length; i++) { %>
+                  <li><a href="#" style="background-color: <%=randomHexColor()%>;"><%=arr[i]%><span><%= randomRange(1, 10)%></span></a></li>
+                <% } %>
               </ul>
             </div>
           </div>
           <%- require('../../components/footer.html')()%>
         </div>
         <div class="white-tiger">
-          <div class="totonoo--article-nav" id="totonoo--article-nav">
-            <ul>
-              <li class="h2 current" data-index="0"><a
-                  href="#%E5%9F%BA%E6%9C%AC%E5%86%99%E6%B3%95%E5%AF%B9%E7%85%A7%E8%A1%A8">基本写法对照表</a></li>
-              <li class="h2" data-index="1"><a
-                  href="#%E5%85%B3%E4%BA%8E%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%A1%A5%E5%85%85">关于枚举类型的补充</a>
-              </li>
-              <li class="h2" data-index="2"><a
-                  href="#%E5%85%B3%E4%BA%8Evoid%E5%92%8Cnever%E7%9A%84%E8%A1%A5%E5%85%85">关于void和never的补充</a></li>
-              <li class="h2" data-index="3"><a
-                  href="#%E5%85%B3%E4%BA%8E%E5%87%BD%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95">关于函数的基本用法</a>
-              </li>
-              <li class="h2" data-index="4"><a
-                  href="#%E5%85%B3%E4%BA%8E%E7%B1%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95">关于类的基本用法</a></li>
-              <li class="h2" data-index="5"><a href="#interface%E7%9A%84%E8%AF%B4%E6%98%8E">Interface的说明</a></li>
-              <li class="h2" data-index="6"><a href="#%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6">声明文件</a></li>
-              <li class="h2" data-index="7"><a href="#%E6%B3%9B%E5%9E%8B">泛型</a></li>
-              <li class="h3" data-index="8"><a
-                  href="#%E5%9C%BA%E6%99%AF1%EF%BC%9A%E4%BC%A0%E9%80%92%E8%BF%9B%E5%85%A5%E4%BB%80%E4%B9%88%E7%B1%BB%E5%9E%8B%E8%BF%94%E5%9B%9E%E4%BB%80%E4%B9%88%E7%B1%BB%E5%9E%8B">场景1：传递进入什么类型返回什么类型</a>
-              </li>
-              <li class="h3" data-index="9"><a
-                  href="#%E5%9C%BA%E6%99%AF2%EF%BC%9A%E4%BC%A0%E5%85%A5%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%EF%BC%8C%E5%B0%86%E5%85%B6%E4%B8%AD%E4%BA%92%E6%8D%A2%E4%BD%8D%E7%BD%AE">场景2：传入一个数组，将其中互换位置</a>
-              </li>
-              <li class="h3" data-index="10"><a
-                  href="#%E5%9C%BA%E6%99%AF3%EF%BC%9A%E5%8A%A8%E6%80%81%E8%BE%93%E5%87%BAobject%E7%9A%84value">场景3：动态输出object的value</a>
-              </li>
-              <li class="h3" data-index="11"><a href="#%E6%B3%9B%E5%9E%8B%E7%BA%A6%E6%9D%9F">泛型约束</a></li>
-              <li class="h2" data-index="12"><a href="#%E8%A3%85%E9%A5%B0%E5%99%A8">装饰器</a></li>
-              <li class="h2" data-index="13"><a href="#reflect-metadata">reflect-metadata</a></li>
-            </ul>
+          <div class="totonoo--aside">
+            <h2><i class="iconfont icon-right-menu"></i>推荐内容</h2>
+            <div class="img-title">
+              <ul>
+                <li>
+                  <a href="#">
+                    <img src="/1.jpg">
+                    <div class="info">
+                      <h3>Typescript学习笔记</h3>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="/2.jpg">
+                    <div class="info">
+                      <h3>前端初级教程</h3>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="tags">
+              <h3><i class="iconfont icon-tags"></i>文章标签 <small>Tags</small></h3>
+              <a href="/tags/typescript.html">typescript</a> <a href="/tags/bi-ji.html">笔记</a> <a href="/tags/ts.html">ts</a> <a href="/tags/css.html">css</a> <a href="/tags/html.html">html</a> <a href="/tags/bo-ke-mo-ban.html">博客模板</a> <a href="/tags/liang-zi-xue-pai.html">量子学派</a> <a href="/tags/qian-duan-kuang-jia.html">前端框架</a> <a href="/tags/vue.html">vue</a> <a href="/tags/react.html">react</a> <a href="/tags/node.html">node</a> <a href="/tags/javascript.html">JAVASCRIPT</a> <a href="/tags/bu-ju.html">布局</a> <a href="/tags/gong-shi-zhi-mei.html">公式之美</a> <a href="/tags/shu-xue-yu-sheng-huo.html">数学与生活</a> <a href="/tags/she-ji.html">设计</a> <a href="/tags/tong-yong-fa-ze.html">通用法则</a> <a href="/tags/xiang-mu-zhun-bei.html">项目准备</a> <a href="/tags/ts-lei-xing.html">ts类型</a> <a href="/tags/fan-li.html">范例</a>
+            </div>
           </div>
         </div>
     </div>
