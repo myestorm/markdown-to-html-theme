@@ -1,30 +1,11 @@
-const fs = require('fs');
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const beautifyHtml = require('js-beautify').html;
 
 const env = process.env.NODE_ENV;
 
-// 创建文件目录
-const mkdirFile = (dirPath = '') => {
-  let pathList = dirPath.split('/');
-  let fileDir = '';
-  let error = null;
-  for (let i in pathList) {
-    fileDir += ('/' + pathList[i]);
-    let _dir = path.join(__dirname, fileDir);
-    if (!fs.existsSync(_dir)) {
-      fs.mkdirSync(_dir, () => {
-        error = new Error(`创建目录${fileDir}失败`);
-        return;
-      });
-    }
-  }
-  return error;
-};
-
 class WebpackAssetsList {
   assets = {};
-  filename = './dist/config.json';
+  filename = 'config.json';
 
   constructor (filename) {
     if (filename) {
@@ -51,22 +32,28 @@ class WebpackAssetsList {
               item.styles.push(sub.attributes.href);
             })
             this.assets[outputName] = item;
+            const content = JSON.stringify(this.assets, null, 4);
+            compilation.assets[this.filename] = {
+              source: function () {
+                  return content;
+              },
+              size: function() {
+                  return content.length;
+              }
+            }
           }
           cb(null, data);
         }
       )
-      HtmlWebpackPlugin.getHooks(compilation).afterEmit.tapAsync(
+
+      HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync(
         'WebpackAssetsList',
         (data, cb) => {
-          if (env === 'production') {
-            const dirname = path.dirname(this.filename);
-            mkdirFile(dirname);
-            fs.writeFile(this.filename, JSON.stringify(this.assets, null, 2), (err) => { 
-              if (err) {
-                console.log(err.message);
-              }
-            });
-          }
+          data.html = beautifyHtml(data.html, {
+            indent_size: 2,
+            end_with_newline: true,
+            max_preserve_newlines: 0
+          });
           cb(null, data);
         }
       )

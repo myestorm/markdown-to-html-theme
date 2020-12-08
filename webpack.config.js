@@ -103,6 +103,17 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
+      },
+      { 
+        test: /\.(ejs|html)$/i, 
+          use: [
+            { 
+              loader: path.resolve(__dirname, 'webpack.ejs.loader.js'),
+              options: {
+                a: '111'
+              }
+            } 
+          ] 
       }
     ]
   }

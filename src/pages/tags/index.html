@@ -6,7 +6,7 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-  <%- require('ejs-webpack-loader!../../components/header.html')({
+  <%- require('../../components/header.html')({
     current: 2
   })%>
   <div class="totonoo--body">
@@ -96,7 +96,7 @@
               </ul>
             </div>
           </div>
-          <%- require('ejs-webpack-loader!../../components/footer.html')()%>
+          <%- require('../../components/footer.html')()%>
         </div>
         <div class="white-tiger">
           <div class="totonoo--article-nav" id="totonoo--article-nav">

@@ -29,7 +29,7 @@ class WebpackReadPages {
       htmls.push(new HtmlWebpackPlugin({
         title: fileContent.title,
         filename: `${fileContent.filename}.html`,
-        template: `ejs-webpack-loader!${fileData.dir}/${fileContent.template}`,
+        template: `${fileData.dir}/${fileContent.template}`,
         chunks: [fileContent.filename],
         minify: false
       }));

@@ -37,7 +37,7 @@ const list = [{
         <div class="top-nav">
           <nav class="top-nav-list">
             <ul>
-              <% list.forEach(function (item, index) { %>
+              <% list.forEach((item, index) => { %>
                 <li<%- (index == _current) ? ' class="current"' : '' %>><a href="<%=item.path%>"><i class="iconfont <%=item.icon%>"></i><%=item.title%></a></li>
               <% }); %>
             </ul>
