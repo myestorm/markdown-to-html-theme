@@ -10,18 +10,36 @@
     display: flex;
     flex-wrap: wrap;
     padding: $--min-space * 2 0 $--min-space * 10;
-    > li > a {
-      display: block;
-      text-decoration: none;
-      background-color: rosybrown;
-      color: $--color-white;
-      white-space: nowrap;
-      padding: $--min-space $--min-space * 4;
-      font-size: $--min-space * 4;
-      position: relative;
-      span {
-        font-size: $--min-space * 3;
-        margin-left: $--min-space;
+    > li {
+      margin-bottom: $--min-space * 3;
+      margin-right: $--min-space * 4;
+      border-radius: $--min-space - 2;
+      border: 1px solid $--color-2;
+      > a {
+        @include textHoverLine();
+        width: 100%;
+        white-space: nowrap;
+        display: flex;
+        text-decoration: none;
+        line-height: 2.4em;
+        transition: $--transition;
+        &:hover {
+          background-color: $--color-bg;
+          box-shadow: $--base-shadow;
+        }
+        .title {
+          flex: 1;
+          padding: 0 0 0 $--min-space * 3;
+          font-size: $--min-space * 4;
+          color: $--color-gray;
+        }
+        .num {
+          color: $--color-primary;
+          font-size: $--min-space * 3;
+          display: flex;
+          align-items: center;
+          padding: 0 $--min-space * 3;
+        }
       }
     }
   }
