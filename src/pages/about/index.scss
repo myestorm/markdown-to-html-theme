@@ -3,6 +3,6 @@
 @import '@assets/scss/vendor.scss';
 @import '@assets/scss/markdown.scss';
 
-body {
-  background: none;
+.#{$--prefix}about {
+  padding-bottom: $--min-space * 5;
 }

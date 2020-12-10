@@ -17,6 +17,11 @@ body {
   color: $--color-black-light;
 }
 
+a, a:visited {
+  text-decoration: none;
+  color: $--color-black-light;
+}
+
 ::-webkit-scrollbar {
   width: 2 * $--min-space - 2;
   height: 2 * $--min-space - 2;
@@ -325,6 +330,7 @@ body {
 
 .#{$--prefix}aside {
   width: 100%;
+  min-height: 100%;
   border-left: 1px solid #e8e8e8;
   box-sizing: border-box;
   padding: $--min-space * 4;
@@ -451,6 +457,129 @@ body {
       .iconfont {
         font-size: $--min-space * 3;
         color: $--color-gray-light;
+      }
+    }
+  }
+}
+
+// 分页
+.#{$--prefix}pagination {
+  padding: $--min-space * 6;
+  ul {
+    @include reset();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    li {
+      padding: 0 $--min-space;
+      &:hover a {
+        background-color: #f1f1f1;
+      }
+    }
+    .num a, .prev span, .prev a, .current span, .next span, .next a, .ellipsis span {
+      display: block;
+      padding: $--min-space * 2 $--min-space * 4;
+      border: 1px solid $--color-1;
+      border-radius: $--min-space;
+      transition: $--transition;
+      font-size: $--min-space * 4;
+      text-decoration: none;
+      color: rgba($color: $--color-gray, $alpha: 0.8);
+    }
+    .current span {
+      background-color: $--color-primary;
+      border-color: $--color-primary;
+      color: $--color-white;
+    }
+  }
+}
+
+// 通用文章列表
+.#{$--prefix}post-list {
+  .item {
+    cursor: pointer;
+    padding: $--min-space * 3 $--min-space * 5;
+    border: 1px solid $--color-2;
+    border-radius: $--min-space;
+    margin-bottom: $--min-space * 6;
+    transition: $--transition;
+    &:hover {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,.08);
+    }
+    a {
+      text-decoration: none;
+    }
+    .title {
+      @include reset();
+      position: relative;
+      padding-left: $--min-space * 3;
+      &:before {
+        width: 3px;
+        height: 18px;
+        display: block;
+        background-color: $--color-primary;
+        border-radius: 3px;
+        content: " ";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -9px;
+        overflow: hidden;
+      }
+      a {
+        color: $--color-black-light;
+        font-size: $--min-space * 4;
+        display: inline-block;
+        padding: $--min-space 0;
+        @include textHoverLine();
+        &:hover {
+          color: $--color-primary;
+        }
+      }
+    }
+    .desc {
+      @include reset();
+      color: $--color-4;
+      font-size: $--min-space * 3 + 2;
+      line-height: 1.8;
+      padding: $--min-space 0;
+      text-align: justify;
+    }
+    .more {
+      color: $--color-primary;
+      font-size: $--min-space * 3;
+      transition: $--transition;
+      &:hover {
+        color: $--color-taupe;
+      }
+      i {
+        font-size: $--min-space * 3;
+        margin-right: $--min-space;
+      }
+    }
+    .info {
+      ul {
+        display: flex;
+        @include reset();
+        li {
+          padding-right: $--min-space * 4;
+          font-size: $--min-space * 2;
+          color: $--color-4;
+          display: flex;
+          align-items: center;
+          .iconfont {
+            margin-right: $--min-space;
+            color: $--color-1;
+          }
+          a {
+            @include textHoverLine();
+            color: $--color-4;
+            margin-right: $--min-space;
+            &:hover {
+              color: $--color-primary;
+            }
+          }
+        }
       }
     }
   }

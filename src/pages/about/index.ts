@@ -12,6 +12,8 @@ import 'prismjs/plugins/show-language/prism-show-language';
 
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
 
+import '@assets/scripts/scroll';
+
 import './index.scss';
 
 $(() => {

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <%- require('../../components/header.html')({
+    current: 2
+  })%>
+  <div class="totonoo--body">
+    <div class="wrapper">
+      <div class="totonoo--flying-wing">
+        <div class="green-dragon">
+          <%- require('../../components/tree.html')()%>
+        </div>
+        <div class="old-ox">
+          <div class="totonoo--main">
+            <%- require('../../components/breadcrumb.html')({
+              list: [{
+                title: '标签',
+                path: '/tags.html'
+              }, {
+                title: 'typescript',
+                path: '/tags.html'
+              }]
+            })%>
+            <%- require('../../components/postlist.html')()%>
+            <%- require('../../components/pagination.html')()%>
+          </div>
+          <%- require('../../components/footer.html')()%>
+        </div>
+        <div class="white-tiger">
+          <%- require('../../components/aside.html')()%>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

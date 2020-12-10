@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <%- require('../../components/header.html')({
+    current: 3
+  })%>
+  <div class="totonoo--body">
+    <div class="wrapper">
+      <div class="totonoo--flying-wing">
+        <div class="green-dragon">
+          <%- require('../../components/tree.html')()%>
+        </div>
+        <div class="old-ox">
+          <div class="totonoo--main">
+            <%- require('../../components/breadcrumb.html')({
+              list: [{
+                title: '时光轴',
+                path: ''
+              }]
+            })%>
+            <div class="totonoo--timeline">
+              <div class="years">
+                <ul>
+                  <li class="passed"><a href="javascript:;">2019</a></li>
+                  <li class="current"><a href="javascript:;">2020</a></li>
+                  <li><a href="javascript:;">2021</a></li>
+                  <li><a href="javascript:;">2022</a></li>
+                  <li><a href="javascript:;">2023</a></li>
+                  <li><a href="javascript:;">2024</a></li>
+                </ul>
+              </div>
+              <div class="items">
+                <ol>
+                  <li>
+                    <span class="datetime">2020年12月10日 14:07</span>
+                    <div class="content">
+                      <h2><a href="#">今天打算开始学习Typescript，并记录下自己的学习过程</a></h2>
+                      <p>if 和 switch 都可以设计多重分支结构，一般情况下 switch 执行效率要高于 if 语句。但是也不能一概而论，应根据具体问题具体分析。简单比较如表所示。</p>
+                      <img src="/demo/1.jpg">
+                      <a href="####" class="more">
+                        <i class="iconfont icon-search"></i>查看详细
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="datetime">2020年12月10日 14:07</span>
+                    <div class="content">
+                      <h2><a href="#">今天打算开始学习Typescript，并记录下自己的学习过程</a></h2>
+                      <p>if 和 switch 都可以设计多重分支结构，一般情况下 switch 执行效率要高于 if 语句。但是也不能一概而论，应根据具体问题具体分析。简单比较如表所示。</p>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <%- require('../../components/footer.html')()%>
+        </div>
+        <div class="white-tiger">
+          <%- require('../../components/aside.html')()%>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

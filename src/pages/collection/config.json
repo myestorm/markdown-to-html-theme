@@ -1,0 +1,6 @@
+{
+  "title": "文集",
+  "filename": "collection",
+  "template": "index.html",
+  "entry": "index.ts"
+}

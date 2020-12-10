@@ -1,0 +1,63 @@
+@import '@assets/scss/variables.scss';
+@import '@assets/scss/mixins.scss';
+@import '@assets/scss/vendor.scss';
+
+.#{$--prefix}collection {
+  padding-bottom: $--min-space * 5;
+  ul, li {
+    @include reset();
+  }
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $--min-space * 2;
+    img {
+      width: 100%;
+      display: block;
+      border: 0;
+      opacity: 0.6;
+      transition: $--transition;
+      position: relative;
+      top: 0;
+    }
+    li {
+      position: relative;
+      box-sizing: border-box;
+      margin: $--min-space;
+      border-radius: $--min-space;
+      overflow: hidden;
+      background-color: #000000;
+      a {
+        display: block;
+        transition: $--transition;
+        &:hover {
+          img {
+            top: - $--min-space * 10;
+            opacity: 0.84;
+          }
+          .info {
+            color: $--color-primary;
+          }
+        }
+      }
+      .info {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        box-sizing: border-box;
+        padding: $--min-space * 2 $--min-space * 4;
+        color: rgba($color: $--color-white, $alpha: 0.8);
+        align-items: center;
+        transition: $--transition;
+        .title {
+          flex: 1;
+        }
+        .num {
+          font-size: $--min-space * 3;
+        }
+      }
+    }
+  }
+}

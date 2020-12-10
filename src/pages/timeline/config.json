@@ -1,0 +1,6 @@
+{
+  "title": "时光轴",
+  "filename": "timeline",
+  "template": "index.html",
+  "entry": "index.ts"
+}

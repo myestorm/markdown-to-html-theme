@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import MarkdownNav from './MarkdownNav';
 $(() => {
   let prevScrollTop = 0;
   const body = $('body');
@@ -8,6 +9,7 @@ $(() => {
   const fixedClass = 'fixed';
   const headerFixedClass = 'header-fixed';
   const height = 80;
+  const markdownNav = new MarkdownNav('.totonoo--markdown', '#totonoo--article-nav', 'body, html');
 
   const scrollEvent = () => {
     const vh = $(window).height();
@@ -63,6 +65,7 @@ $(() => {
           top: 0
         });
       }
+      markdownNav.setIndex(scrollTop);
     }
     prevScrollTop = scrollTop || 0;
   };

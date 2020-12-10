@@ -1,0 +1,6 @@
+{
+  "title": "标签列表",
+  "filename": "tags_list",
+  "template": "index.html",
+  "entry": "index.ts"
+}
