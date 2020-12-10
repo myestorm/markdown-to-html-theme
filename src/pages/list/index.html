@@ -8,7 +8,7 @@
 </head>
 <body>
   <%- require('../../components/header.html')({
-    current: 2
+    current: 0
   })%>
   <div class="totonoo--body">
     <div class="wrapper">
@@ -22,11 +22,11 @@
           <div class="totonoo--main">
             <%- require('../../components/breadcrumb.html')({
               list: [{
-                title: '标签',
-                path: '/tags.html'
+                title: '文章列表',
+                path: '/list.html'
               }, {
                 title: 'typescript',
-                path: '/tags.html'
+                path: '/list.html'
               }]
             })%>
             <%- require('../../components/postlist.html')()%>

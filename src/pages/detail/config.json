@@ -1,0 +1,6 @@
+{
+  "title": "文章详细",
+  "filename": "detail",
+  "template": "index.html",
+  "entry": "index.ts"
+}

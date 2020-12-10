@@ -1,0 +1,6 @@
+{
+  "title": "文集详细",
+  "filename": "collection_detail",
+  "template": "index.html",
+  "entry": "index.ts"
+}

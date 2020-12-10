@@ -1,0 +1,17 @@
+@import '@assets/scss/variables.scss';
+@import '@assets/scss/mixins.scss';
+@import '@assets/scss/vendor.scss';
+@import '@assets/scss/markdown.scss';
+
+.#{$--prefix}collection-detail {
+  padding-bottom: $--min-space * 5;
+}
+.#{$--prefix}tree-one {
+  .totonoo--page-tree-placeholder .totonoo--page-tree a {
+    border: 0;
+    background: none;
+  }
+  .totonoo--page-tree-placeholder .totonoo--page-tree > ul > li {
+    margin: 0;
+  }
+}

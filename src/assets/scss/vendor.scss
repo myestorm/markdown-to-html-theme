@@ -208,7 +208,7 @@ a, a:visited {
     box-sizing: border-box;
     max-height: 100%;
     overflow-y: auto;
-    padding: $--min-space * 2 0;
+    padding: $--min-space * 2 0 $--min-space * 2 2px;
     &.fixed {
       width: $--green-dragon-width - 1px;
       height: 100%;
@@ -384,6 +384,30 @@ a, a:visited {
       font-size: $--min-space * 3;
     }
   }
+  .text-list {
+    padding: 0 0 $--min-space * 2;
+    ul, ol {
+      @include reset();
+    }
+    a {
+      @include textHoverLine();
+      display: block;
+      font-size: $--min-space * 3;
+      text-decoration: none;
+      color: $--color-4;
+      line-height: 2;
+      span {
+        display: block;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &:hover {
+        color: $--color-primary;
+      }
+    }
+  }
   .tags {
     h3 {
       @include reset();
@@ -421,11 +445,12 @@ a, a:visited {
   border-top: 1px solid $--color-bg;
   a {
     text-decoration: none;
-    color: rgba(0,0,0, 0.4);
+    color: $--color-primary;
     transition: $--transition;
     margin: 0 $--min-space;
+    opacity: 0.72;
     &:hover {
-      color: $--color-gray;
+      color: $--color-taupe;
     }
   }
 }
@@ -464,7 +489,7 @@ a, a:visited {
 
 // 分页
 .#{$--prefix}pagination {
-  padding: $--min-space * 6;
+  padding: $--min-space * 6 0 $--min-space * 11;
   ul {
     @include reset();
     display: flex;

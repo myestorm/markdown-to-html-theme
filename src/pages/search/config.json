@@ -1,0 +1,6 @@
+{
+  "title": "文章搜索",
+  "filename": "search",
+  "template": "index.html",
+  "entry": "index.ts"
+}

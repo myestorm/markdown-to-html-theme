@@ -1,21 +1,14 @@
 import $ from 'jquery';
-import 'prismjs';
-import 'prismjs/themes/prism-tomorrow.css';
-
-import 'prismjs/plugins/toolbar/prism-toolbar';
-import 'prismjs/plugins/toolbar/prism-toolbar.css';
-
-import 'prismjs/plugins/line-numbers/prism-line-numbers';
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
-
-import 'prismjs/plugins/show-language/prism-show-language';
-
-import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
-
 import './index.scss';
-
 import '@assets/scripts/scroll';
 
 $(() => {
-  console.log('index');
+  const tabs = $('#totonoo--tabs');
+  const tabsTitle = tabs.find('.tabs-title');
+  const tabsContent = tabs.find('.tabs-content');
+  tabsTitle.find('li').on('click', function () {
+    const index = tabsTitle.find('li').index(this);
+    $(this).addClass('current').siblings().removeClass('current');
+    tabsContent.eq(index).show().siblings('.tabs-content').hide();
+  });
 });
