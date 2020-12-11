@@ -3,14 +3,17 @@
 @import '@assets/scss/vendor.scss';
 
 .#{$--prefix}index {
-  padding: $--min-space * 5 0;
+  padding: $--main-padding;
+  padding-bottom: 0;
 }
 .#{$--prefix}tabs {
   .tabs-title {
     padding: 0 0 $--min-space * 4 0;
+    display: flex;
     ul {
       @include reset();
       display: flex;
+      flex: 1;
       li {
         background-color: $--color-gray;
         a {

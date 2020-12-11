@@ -151,12 +151,12 @@ const _list = [{
     </p>
     <div class="info">
       <ul>
-        <li>
+        <li class="a">
           <i class="iconfont icon-folder"></i>
           <a href="<%=item.categoryPath%>"><%=item.categoryTitle%></a>
         </li>
-        <li><i class="iconfont icon-time"></i><%=item.publishDate%></li>
-        <li>
+        <li class="b"><i class="iconfont icon-time"></i><%=item.publishDate%></li>
+        <li class="c">
           <i class="iconfont icon-tags"></i>
           <% item.tags.forEach(tag => { %>
             <a href="<%=tag.path%>"><%=tag.title%></a>

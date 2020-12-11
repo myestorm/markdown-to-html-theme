@@ -3,7 +3,6 @@
 @import '@assets/scss/vendor.scss';
 
 .#{$--prefix}collection {
-  padding-bottom: $--min-space * 5;
   ul, li {
     @include reset();
   }

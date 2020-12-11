@@ -24,33 +24,35 @@ const list = [{
 %>
 <div class="totonoo--header" id="totonoo--top-header">
   <div class="wrapper">
-    <div class="totonoo--flying-wing">
-      <div class="green-dragon">
-        <div class="top-logo">
-          <a href="/">
-            <i class="logo-icon"></i>
-            <h1>Totonoo<small>.com</small></h1>
-          </a>
+    <div class="totonoo--large-header">
+      <div class="totonoo--flying-wing">
+        <div class="green-dragon">
+          <div class="top-logo">
+            <a href="/">
+              <i class="logo-icon"></i>
+              <h1>Totonoo<small>.com</small></h1>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="old-ox">
-        <div class="top-nav">
-          <nav class="top-nav-list">
-            <ul>
-              <% list.forEach((item, index) => { %>
-                <li<%- (index == _current) ? ' class="current"' : '' %>><a href="<%=item.path%>"><i class="iconfont <%=item.icon%>"></i><%=item.title%></a></li>
-              <% }); %>
-            </ul>
-          </nav>
+        <div class="old-ox">
+          <div class="top-nav">
+            <nav class="top-nav-list">
+              <ul>
+                <% list.forEach((item, index) => { %>
+                  <li<%- (index == _current) ? ' class="current"' : '' %>><a href="<%=item.path%>"><i class="iconfont <%=item.icon%>"></i><%=item.title%></a></li>
+                <% }); %>
+              </ul>
+            </nav>
+          </div>
         </div>
-      </div>
-      <div class="white-tiger">
-        <div class="top-search">
-          <div class="top-search-input">
-            <label>
-              <i class="iconfont icon-search"></i>
-              <input placeholder="Search...">
-            </label>
+        <div class="white-tiger">
+          <div class="top-search">
+            <form method="GET" action="/search.html">
+              <label class="top-search-input">
+                <i class="iconfont icon-search"></i>
+                <input name="keyword" placeholder="Search...">
+              </label>
+            </form>
           </div>
         </div>
       </div>

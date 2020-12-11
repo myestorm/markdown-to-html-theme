@@ -177,16 +177,36 @@ a, a:visited {
     border-left: 1px solid rgba($color: #000000, $alpha: 0.04);
     padding: 0 4 * $--min-space;
     box-sizing: border-box;
+    position: relative;
+    transition: $--transition;
     .top-search-input {
-      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      box-sizing: border-box;
+      padding: 0 4 * $--min-space;
       display: flex;
-      color: #dddddd;
+      align-items: center;
+      justify-content: left;
+      color: $--color-1;
+      cursor: pointer;
       input {
-        border: 0;
         flex: 1;
-        outline: none;
+        margin-left: $--min-space * 2;
+        height: 100%;
+        border: 0;
+        outline: 0;
+        max-width: $--min-space * 40;
+        &::placeholder {
+          color: $--color-gray-light;
+        }
       }
     }
+  }
+  .top-middle-search {
+    display: none;
   }
 }
 
@@ -196,6 +216,7 @@ a, a:visited {
 }
 .#{$--prefix}main {
   max-width: $--main-width;
+  min-height: calc(100vh - #{$--header-height} - 60px);
   margin: 0 auto;
 }
 .#{$--prefix}page-tree-placeholder {
@@ -489,7 +510,7 @@ a, a:visited {
 
 // 分页
 .#{$--prefix}pagination {
-  padding: $--min-space * 6 0 $--min-space * 11;
+  padding: $--main-padding;
   ul {
     @include reset();
     display: flex;
@@ -526,7 +547,7 @@ a, a:visited {
     padding: $--min-space * 3 $--min-space * 5;
     border: 1px solid $--color-2;
     border-radius: $--min-space;
-    margin-bottom: $--min-space * 6;
+    margin-bottom: $--min-space * 5;
     transition: $--transition;
     &:hover {
       box-shadow: 0 4px 8px 0 rgba(0,0,0,.08);
@@ -605,6 +626,252 @@ a, a:visited {
             }
           }
         }
+      }
+    }
+  }
+}
+
+// 抽屉
+.#{$--prefix}drawer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  display: flex;
+  justify-content: flex-start;
+  &.totonoo--drawer-rtl {
+    justify-content: flex-end;
+  }
+  .content {
+    width: 76%;
+    max-width: 500px;
+    height: 100%;
+    background-color: $--color-white;
+    box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
+    display: flex;
+    flex-direction: column;
+    .drawer-header {
+      display: flex;
+      padding: $--min-space * 3;
+      .title {
+        flex: 1;
+      }
+      .closed {
+        button {
+          border: 0;
+          background: none;
+          cursor: pointer;
+          transition: $--transition;
+          outline: none;
+          &:hover {
+            color: $--color-primary;
+          }
+        }
+      }
+    }
+    .drawer-content {
+      flex: 1;
+      position: relative;
+      .drawer-content-box {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+}
+
+.#{$--prefix}drawer-tree {
+  @include reset();
+  border-right: 0;
+  ul, li {
+    @include reset();
+  }
+  > li {
+    border-right: 0;
+    margin: $--min-space 0;
+  }
+  li li {
+    padding-left: $--min-space * 5;
+    margin-top: -1px;
+  }
+  a {
+    font-size: $--min-space * 4 - 2;
+    text-decoration: none;
+    color: rgba($color: #000000, $alpha: 0.5);
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: $--min-space * 8;
+    padding: 0 $--min-space * 2;
+    transition: $--transition;
+    background-color: #f8f8f8;
+    border: 1px solid #eeeeee;
+    border-right: 0;
+    border-collapse: collapse;
+    @include textHoverLine(2px);
+    &:hover {
+      color: $--color-primary;
+      background-color: #ffffff;
+      position: relative;
+      z-index: 2;
+    }
+    .iconfont {
+      margin: 0 $--min-space * 2 0 $--min-space;
+    }
+    &.current {
+      color: $--color-primary;
+      background-color: rgba($color: $--color-primary, $alpha: 0.02);
+      position: relative;
+      &::after {
+        content: " ";
+        position: absolute;
+        width: 3px;
+        height: 50%;
+        display: block;
+        left: -2px;
+        top: 25%;
+        background-color: $--color-primary;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.#{$--prefix}right-menu {
+  border: 0;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  transition: $--transition;
+  color: $--color-gray-light;
+  display: none;
+  .iconfont {
+    font-size: $--min-space * 5;
+  }
+  &:hover {
+    color: $--color-primary;
+  }
+}
+.#{$--prefix}small-header {
+  display: none;
+  align-items: center;
+  .top-menu {
+    height: $--min-space * 11;
+    border: 0;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    transition: $--transition;
+    color: $--color-4;
+    padding: 0 $--min-space * 5;
+    .iconfont {
+      font-size: $--min-space * 8;
+    }
+    &:hover {
+      color: $--color-primary;
+    }
+  }
+  .top-logo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    border: 0;
+    padding: 0;
+  }
+  .top-small-search {
+    width: $--min-space * 14;
+    height: $--min-space * 11;
+    position: relative;
+    .top-search {
+      width: 60px;
+      overflow: hidden;
+      border: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      input {
+        display: none;
+      }
+      &.block {
+        width: $--min-space * 50;
+        background-color: $--color-white;
+        input {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .#{$--prefix}flying-wing {
+    .white-tiger {
+      display: none;
+    }
+  }
+  .#{$--prefix}right-menu {
+    display: block;
+  }
+  .#{$--prefix}header {
+    .top-middle-search {
+      width: $--white-tiger-width - 60px;
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .#{$--prefix}flying-wing {
+    .green-dragon {
+      display: none;
+    }
+    .white-tiger {
+      display: none;
+    }
+  }
+  .#{$--prefix}large-header {
+    display: none;
+  }
+  .#{$--prefix}small-header {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .#{$--prefix}flying-wing {
+    .old-ox {
+      padding: 0 $--min-space * 5;
+    }
+  }
+  .#{$--prefix}footer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .#{$--prefix}post-list {
+    .item {
+      .info {
+        ul {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .#{$--prefix}pagination {
+    ul {
+      .num, .ellipsis, .current {
+        display: none;
       }
     }
   }
