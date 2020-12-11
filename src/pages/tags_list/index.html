@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= htmlWebpackPlugin.options.title %></title>
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="favicon.ico">
 </head>
 <body>
   <%- require('../../components/header.html')({
@@ -23,10 +23,10 @@
             <%- require('../../components/breadcrumb.html')({
               list: [{
                 title: '标签',
-                path: '/tags.html'
+                path: 'tags.html'
               }, {
                 title: 'typescript',
-                path: '/tags.html'
+                path: 'tags.html'
               }]
             })%>
             <div class="totonoo--tags-list">

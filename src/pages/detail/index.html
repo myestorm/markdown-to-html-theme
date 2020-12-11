@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= htmlWebpackPlugin.options.title %></title>
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="favicon.ico">
 </head>
 <body>
   <%- require('../../components/header.html')({
@@ -23,13 +23,13 @@
             <%- require('../../components/breadcrumb.html')({
               list: [{
                 title: '文章分类',
-                path: '/list.html'
+                path: 'list.html'
               }, {
                 title: '文章分类',
-                path: '/list.html'
+                path: 'list.html'
               }, {
                 title: 'Typescript学习笔记',
-                path: '/collection.html'
+                path: 'collection.html'
               }]
             })%>
             <div class="totonoo--collection-detail">
@@ -128,6 +128,16 @@
                   这些特性为高可信应用程序开发时是可用的，但是会被编译成简洁的ECMAScript3（或更新版本）的JavaScript。
                 </p>
               </article>
+              <div class="totonoo--article-related">
+                <ul>
+                  <li>
+                    <a href="#"><i class="iconfont icon-arrow-left"></i> css基本概念学习</a>
+                  </li>
+                  <li>
+                    <a href="#">css基本概念学习 <i class="iconfont icon-arrow-right"></i></a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <%- require('../../components/footer.html')()%>

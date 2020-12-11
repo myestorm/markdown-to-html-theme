@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= htmlWebpackPlugin.options.title %></title>
-  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="favicon.ico">
 </head>
 <body>
   <%- require('../../components/header.html')({
@@ -37,7 +37,7 @@
                 }
                 %>
                 <% for (let i = 0; i < arr.length; i++) { %>
-                  <li><a href="/tags_list.html"><span class="title"><%=arr[i]%></span><span class="num"><%= randomRange(1, 10) * 10%></span></a></li>
+                  <li><a href="tags_list.html"><span class="title"><%=arr[i]%></span><span class="num"><%= randomRange(1, 10) * 10%></span></a></li>
                 <% } %>
               </ul>
             </div>

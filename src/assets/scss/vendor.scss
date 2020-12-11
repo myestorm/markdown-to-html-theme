@@ -820,6 +820,7 @@ a, a:visited {
       &.block {
         width: $--min-space * 50;
         background-color: $--color-white;
+        box-shadow: $--dark-shadow;
         input {
           display: block;
         }
