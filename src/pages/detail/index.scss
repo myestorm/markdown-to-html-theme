@@ -4,7 +4,13 @@
 @import '@assets/scss/markdown.scss';
 
 .#{$--prefix}collection-detail {
-  padding-bottom: $--min-space * 5;
+  padding-bottom: $--main-padding;
+  position: relative;
+  .#{$--prefix}right-menu {
+    position: absolute;
+    right: 0;
+    top: -1 * $--min-space * 9;
+  }
 }
 .#{$--prefix}tree-one {
   .totonoo--page-tree-placeholder .totonoo--page-tree a {

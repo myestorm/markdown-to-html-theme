@@ -29,8 +29,11 @@
                 path: '/tags.html'
               }]
             })%>
-            <%- require('../../components/postlist.html')()%>
-            <%- require('../../components/pagination.html')()%>
+            <div class="totonoo--tags-list">
+              <button class="totonoo--right-menu"><i class="iconfont icon-right-menu"></i></button>
+              <%- require('../../components/postlist.html')()%>
+              <%- require('../../components/pagination.html')()%>
+            </div>
           </div>
           <%- require('../../components/footer.html')()%>
         </div>

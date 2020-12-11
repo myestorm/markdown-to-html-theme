@@ -454,6 +454,24 @@ a, a:visited {
       }
     }
   }
+  > ul {
+    @include reset();
+    li {
+      @include reset();
+      a {
+        @include textHoverLine();
+        display: inline-block;
+        font-size: $--min-space * 3;
+        text-decoration: none;
+        white-space: nowrap;
+        color: $--color-4;
+        margin-right: $--min-space;
+        &:hover {
+          color: $--color-primary;
+        }
+      }
+    }
+  }
 }
 
 .#{$--prefix}footer {
@@ -810,7 +828,7 @@ a, a:visited {
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1360px) {
   .#{$--prefix}flying-wing {
     .white-tiger {
       display: none;

@@ -29,8 +29,11 @@
                 path: '/list.html'
               }]
             })%>
-            <%- require('../../components/postlist.html')()%>
-            <%- require('../../components/pagination.html')()%>
+            <div class="totonoo--alist">
+              <button class="totonoo--right-menu"><i class="iconfont icon-right-menu"></i></button>
+              <%- require('../../components/postlist.html')()%>
+              <%- require('../../components/pagination.html')()%>
+            </div>
           </div>
           <%- require('../../components/footer.html')()%>
         </div>

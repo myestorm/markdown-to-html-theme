@@ -4,5 +4,11 @@
 @import '@assets/scss/markdown.scss';
 
 .#{$--prefix}about {
-  padding-bottom: $--min-space * 5;
+  padding-bottom: $--main-padding;
+  position: relative;
+  .#{$--prefix}right-menu {
+    position: absolute;
+    right: 0;
+    top: -1 * $--min-space * 9;
+  }
 }

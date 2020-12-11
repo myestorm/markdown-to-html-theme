@@ -3,6 +3,12 @@
 @import '@assets/scss/vendor.scss';
 
 .#{$--prefix}tags {
+  position: relative;
+  .#{$--prefix}right-menu {
+    position: absolute;
+    right: 0;
+    top: -1 * $--min-space * 9;
+  }
   ul, li {
     @include reset();
   }
