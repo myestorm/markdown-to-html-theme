@@ -259,14 +259,14 @@ a, a:visited {
       line-height: $--min-space * 8;
       padding: 0 $--min-space * 2;
       transition: $--transition;
-      background-color: #f8f8f8;
-      border: 1px solid #eeeeee;
+      background-color: $--color-bg;
+      border: 1px solid $--color-3;
       border-right: 0;
       border-collapse: collapse;
       @include textHoverLine(2px);
       &:hover {
         color: $--color-primary;
-        background-color: #ffffff;
+        background-color: $--color-white;
         position: relative;
         z-index: 2;
       }

@@ -11,6 +11,41 @@
     right: 0;
     top: -1 * $--min-space * 9;
   }
+  .detail-info {
+    padding: 0 0 $--min-space * 3 0;
+    h1 {
+      margin: 0;
+      font-size: $--min-space * 8;
+      line-height: $--min-space * 8 * 1.618;
+      padding: $--min-space * 2 0;
+      font-weight: bold;
+    }
+    .info {
+      ul {
+        display: flex;
+        @include reset();
+        li {
+          padding-right: $--min-space * 4;
+          font-size: $--min-space * 2;
+          color: $--color-4;
+          display: flex;
+          align-items: center;
+          .iconfont {
+            margin-right: $--min-space;
+            color: $--color-1;
+          }
+          a {
+            @include textHoverLine();
+            color: $--color-4;
+            margin-right: $--min-space;
+            &:hover {
+              color: $--color-primary;
+            }
+          }
+        }
+      }
+    }
+  }
   .#{$--prefix}article-related {
     margin: $--min-space * 6 0;
     ul {
