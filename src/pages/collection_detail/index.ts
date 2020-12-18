@@ -1,6 +1,21 @@
 import $ from 'jquery';
 
 import 'prismjs';
+
+import 'prismjs/components/prism-markup';
+import 'prismjs/components/prism-markup-templating';
+import 'prismjs/components/prism-xml-doc';
+import 'prismjs/components/prism-markdown';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-scss';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-regex';
+import 'prismjs/components/prism-mongodb';
+import 'prismjs/components/prism-sql';
+import 'prismjs/components/prism-powershell';
+
 import 'prismjs/themes/prism-tomorrow.css';
 
 import 'prismjs/plugins/toolbar/prism-toolbar';

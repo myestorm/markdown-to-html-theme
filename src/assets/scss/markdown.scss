@@ -16,6 +16,18 @@
   img {
     max-width: 100%;
   }
+  code {
+    background-color: $--color-3;
+    display: inline-block;
+    border-radius: $--min-space;
+    padding: 0 $--min-space;
+  }
+  pre code {
+    background: none;
+    display: inherit;
+    border-radius: inherit;
+    padding: 0;
+  }
   .language-plaintext {
     background-color: $--color-2;
     border-radius: $--min-space;
@@ -71,7 +83,7 @@
     }
   }
   table {
-    max-width: 100%;
+    width: 100%;
     border: 1px solid $--color-2;
     border-collapse: collapse;
     th, td {
