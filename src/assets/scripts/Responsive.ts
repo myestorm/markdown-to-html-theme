@@ -19,7 +19,13 @@ class Responsive {
     topNav.find('ul').addClass('totonoo--drawer-tree');
 
     if (left[0]) {
-      topNav.find('li').eq(0).append(left.html());
+      const topNavItems = topNav.find('li');
+      topNavItems.each(index => {
+        topNavItems.eq(index).html('<div class="link-wrap">'+ topNavItems.eq(index).html() +'</div>');
+        if (index === 0) {
+          topNavItems.eq(index).append(left.html());
+        }
+      });
       this.leftDrawer = new TotonooDrawer({
         content: topNav.html()
       });

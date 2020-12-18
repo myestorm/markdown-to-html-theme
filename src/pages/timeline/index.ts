@@ -9,4 +9,12 @@ $(() => {
   const header = $('#totonoo--top-header');
   const nav = $('#totonoo--aside');
   new Responsive(header, tree, nav);
+
+  $('.years li').on('click', function () {
+    if (!$(this).hasClass('disabled')) {
+      const index = $('.years li').index(this);
+      $(this).addClass('current').siblings().removeClass('current');
+      $('.timeline-list .items').eq(index).show().siblings().hide();
+    }
+  });
 });

@@ -35,15 +35,15 @@
           color: $--color-white;
           cursor: not-allowed;
         }
-        &.current {
-          background-color: $--color-primary;
+        &.passed {
+          background-color: $--color-primary-light;
           opacity: 1;
           a {
             cursor: pointer;
           }
         }
-        &.passed {
-          background-color: $--color-primary-light;
+        &.current {
+          background-color: $--color-primary;
           opacity: 1;
           a {
             cursor: pointer;
@@ -126,6 +126,11 @@
           background-color: $--color-taupe-dark;
         }
       }
+    }
+  }
+  .timeline-list {
+    .items {
+      display: none;
     }
   }
 }

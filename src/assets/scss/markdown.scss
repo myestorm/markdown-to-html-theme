@@ -1,5 +1,6 @@
 .#{$--prefix}markdown {
   line-height: 1.7;
+  text-align: justify;
   @for $i from 1 through 6 {
     h#{$i} {
       @include reset();

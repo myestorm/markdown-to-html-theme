@@ -73,3 +73,21 @@
     margin: 0;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .#{$--prefix}collection-detail {
+    .detail-info {
+      .info {
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          @include reset();
+          li {
+            width: 50%;
+            box-sizing: border-box;
+          }
+        }
+      }
+    }
+  }
+}

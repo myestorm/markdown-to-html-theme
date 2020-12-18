@@ -109,7 +109,7 @@
     const forEachTree = (data = [], level = 0) => {
       html.push('<ul>')
       data.forEach(item => {
-        html.push(`<li><a href="${item.path}" class="${level == 0 ? 'first-level' : ''} level-${level} ${item.title == current ? 'current' : ''}">${item.icon ? '<i class="iconfont '+ item.icon +'"></i>' : ''}${item.title}</a>`);
+        html.push(`<li><div class="link-wrap ${level == 0 ? 'first-level' : ''} level-${level} ${item.title == current ? 'current' : ''}"><a href="${item.path}">${item.icon ? '<i class="iconfont '+ item.icon +'"></i>' : ''}${item.title}</a></div>`);
         if (item.children && item.children.length > 0){
           forEachTree(item.children, (level + 1));
         }

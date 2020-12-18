@@ -11,6 +11,23 @@
     right: 0;
     top: -1 * $--min-space * 9;
   }
+  .#{$--prefix}article-related {
+    margin: $--min-space * 6 0;
+    ul {
+      display: flex;
+      @include reset();
+      li {
+        width: 50%;
+        &:last-child {
+          text-align: right;
+        }
+      }
+      a {
+        @include textHoverLine();
+        color: $--color-primary;
+      }
+    }
+  }
 }
 .#{$--prefix}tree-one {
   .totonoo--page-tree-placeholder .totonoo--page-tree a {

@@ -93,7 +93,9 @@ a, a:visited {
     .logo-icon {
       width: 36px;
       height: 36px;
-      background: url(@assets/images/logo/logo_primary.png) no-repeat center center;
+      background-image: url(@assets/images/logo/logo_primary.png);
+      background-position: center center;
+      background-repeat: no-repeat;
       background-size: cover;
       display: block;
     }
@@ -249,11 +251,11 @@ a, a:visited {
       padding-left: $--min-space * 5;
       margin-top: -1px;
     }
-    a {
+    .link-wrap {
       font-size: $--min-space * 4 - 2;
       text-decoration: none;
       color: rgba($color: #000000, $alpha: 0.5);
-      display: block;
+      display: flex;
       white-space: nowrap;
       text-overflow: ellipsis;
       line-height: $--min-space * 8;
@@ -263,12 +265,17 @@ a, a:visited {
       border: 1px solid $--color-3;
       border-right: 0;
       border-collapse: collapse;
-      @include textHoverLine(2px);
       &:hover {
         color: $--color-primary;
         background-color: $--color-white;
         position: relative;
         z-index: 2;
+      }
+      a {
+        @include textHoverLine(2px);
+        &:hover {
+          color: $--color-primary;
+        }
       }
       .iconfont {
         margin: 0 $--min-space * 2 0 $--min-space;
@@ -410,20 +417,18 @@ a, a:visited {
     ul, ol {
       @include reset();
     }
+    li {
+      display: block;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     a {
       @include textHoverLine();
-      display: block;
       font-size: $--min-space * 3;
       text-decoration: none;
       color: $--color-4;
-      line-height: 2;
-      span {
-        display: block;
-        max-width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
       &:hover {
         color: $--color-primary;
       }
@@ -718,11 +723,11 @@ a, a:visited {
     padding-left: $--min-space * 5;
     margin-top: -1px;
   }
-  a {
+  .link-wrap {
     font-size: $--min-space * 4 - 2;
     text-decoration: none;
     color: rgba($color: #000000, $alpha: 0.5);
-    display: block;
+    display: flex;
     white-space: nowrap;
     text-overflow: ellipsis;
     line-height: $--min-space * 8;
@@ -732,12 +737,17 @@ a, a:visited {
     border: 1px solid #eeeeee;
     border-right: 0;
     border-collapse: collapse;
-    @include textHoverLine(2px);
     &:hover {
       color: $--color-primary;
       background-color: #ffffff;
       position: relative;
       z-index: 2;
+    }
+    a {
+      @include textHoverLine(2px);
+      &:hover {
+        color: $--color-primary;
+      }
     }
     .iconfont {
       margin: 0 $--min-space * 2 0 $--min-space;
@@ -879,7 +889,11 @@ a, a:visited {
     .item {
       .info {
         ul {
-          display: block;
+          flex-wrap: wrap;
+          li {
+            width: 50%;
+            box-sizing: border-box;
+          }
         }
       }
     }
