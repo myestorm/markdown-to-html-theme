@@ -74,7 +74,7 @@ $(() => {
   scrollEvent();
 
   // 点击事件
-  $('.totonoo--post-list .item').on('click', (e) => {
+  $('body').on('click', '.totonoo--post-list .item', (e) => {
     if(e.target.tagName.toLowerCase() !== 'a') {
       window.location.href = $(e.currentTarget).find('.title a').attr('href');
     }
