@@ -1,9 +1,11 @@
+$--margin: $--min-space * 4 0;
 .#{$--prefix}markdown {
   line-height: 1.7;
   word-break: break-all;
   @for $i from 1 through 6 {
     h#{$i} {
       @include reset();
+      margin: $--margin;
       font-size: ($--min-space / 2) * (14 - $i);
     }
   }
@@ -24,6 +26,7 @@
     display: inherit;
     border-radius: inherit;
     padding: 0;
+    white-space: pre;
   }
   .language-plaintext {
     background-color: $--color-2;
@@ -36,6 +39,7 @@
     box-sizing: border-box;
     border-radius: $--min-space;
     overflow-x: auto;
+    margin: $--margin;
   }
   hr {
     height: 1px;
@@ -55,6 +59,7 @@
     background-color: $--color-bg;
     border-radius: $--min-space;
     color: $--color-gray-light;
+    margin: $--margin;
     &::before {
       content: open-quote;
       position: absolute;
@@ -84,6 +89,7 @@
     width: 100%;
     border: 1px solid $--color-2;
     border-collapse: collapse;
+    margin: $--margin;
     th, td {
       border: 1px solid $--color-2;
       padding: $--min-space $--min-space * 2;
@@ -100,7 +106,12 @@
     transition: $--transition;
     text-decoration: none;
   }
+  p {
+    margin: $--margin;
+    padding: 0;
+  }
   ul, ol {
+    margin: $--margin;
     padding: 0 0 0 $--min-space * 4;
     ul, ol {
       padding: 0 $--min-space * 4;

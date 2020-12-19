@@ -13,11 +13,17 @@
   }
   .#{$--prefix}article-related {
     margin: $--min-space * 6 0;
+    padding: $--min-space * 3 $--min-space * 4;
+    background-color: $--color-bg-light;
+    border-radius: $--min-space;
     ul {
       display: flex;
       @include reset();
       li {
         width: 50%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         &:last-child {
           text-align: right;
         }
