@@ -20,12 +20,7 @@ class Responsive {
 
     if (left[0]) {
       const topNavItems = topNav.find('li');
-      topNavItems.each(index => {
-        topNavItems.eq(index).html('<div class="link-wrap">'+ topNavItems.eq(index).html() +'</div>');
-        if (index === 0) {
-          topNavItems.eq(index).append(left.html());
-        }
-      });
+      topNavItems.eq(0).append(left.html());
       this.leftDrawer = new TotonooDrawer({
         content: topNav.html()
       });

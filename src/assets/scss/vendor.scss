@@ -251,7 +251,7 @@ a, a:visited {
       padding-left: $--min-space * 5;
       margin-top: -1px;
     }
-    .link-wrap {
+    a {
       font-size: $--min-space * 4 - 2;
       text-decoration: none;
       color: rgba($color: #000000, $alpha: 0.5);
@@ -271,7 +271,7 @@ a, a:visited {
         position: relative;
         z-index: 2;
       }
-      a {
+      span {
         @include textHoverLine(2px);
         &:hover {
           color: $--color-primary;
@@ -419,12 +419,21 @@ a, a:visited {
     }
     li {
       display: block;
-      max-width: 100%;
+      width: 100%;
+    }
+    a {
+      display: block;
+      transition: $--transition;
+      border-radius: $--min-space;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      &:hover {
+        padding: 0 $--min-space * 2;
+        background-color: $--color-bg-light;
+      }
     }
-    a {
+    span {
       @include textHoverLine();
       font-size: $--min-space * 3;
       text-decoration: none;
@@ -506,20 +515,31 @@ a, a:visited {
   > ul {
     display: flex;
     align-items: center;
-    padding: $--min-space * 3 0;
+    padding: $--min-space * 4 0 $--min-space * 3;
+    overflow: hidden;
+    padding-right: $--min-space * 8;
     li {
       padding-right: $--min-space * 2;
       font-size: $--min-space * 3 + 2;
       color: $--color-gray-light;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       a {
         text-decoration: none;
         font-size: $--min-space * 3 + 2;
         color: $--color-4;
         transition: $--transition;
         @include textHoverLine();
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         &:hover {
           color: $--color-primary;
         }
+      }
+      strong {
+        font-weight: normal;
       }
     }
     .separate {
@@ -612,6 +632,7 @@ a, a:visited {
       font-size: $--min-space * 3 + 2;
       line-height: 1.8;
       padding: $--min-space 0;
+      word-break: break-all;
       text-align: justify;
     }
     .more {
@@ -629,13 +650,15 @@ a, a:visited {
     .info {
       ul {
         display: flex;
+        flex-wrap: wrap;
         @include reset();
         li {
           padding-right: $--min-space * 4;
-          font-size: $--min-space * 2;
+          font-size: $--min-space * 3;
           color: $--color-4;
           display: flex;
           align-items: center;
+          white-space: nowrap;
           .iconfont {
             margin-right: $--min-space;
             color: $--color-1;
@@ -723,7 +746,7 @@ a, a:visited {
     padding-left: $--min-space * 5;
     margin-top: -1px;
   }
-  .link-wrap {
+  a {
     font-size: $--min-space * 4 - 2;
     text-decoration: none;
     color: rgba($color: #000000, $alpha: 0.5);
@@ -743,7 +766,7 @@ a, a:visited {
       position: relative;
       z-index: 2;
     }
-    a {
+    span {
       @include textHoverLine(2px);
       &:hover {
         color: $--color-primary;
@@ -881,22 +904,6 @@ a, a:visited {
   }
   .#{$--prefix}footer {
     width: 100%;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .#{$--prefix}post-list {
-    .item {
-      .info {
-        ul {
-          flex-wrap: wrap;
-          li {
-            width: 50%;
-            box-sizing: border-box;
-          }
-        }
-      }
-    }
   }
 }
 

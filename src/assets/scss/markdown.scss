@@ -1,13 +1,10 @@
 .#{$--prefix}markdown {
   line-height: 1.7;
-  text-align: justify;
+  word-break: break-all;
   @for $i from 1 through 6 {
     h#{$i} {
       @include reset();
-      font-size: $--min-space * (9 - $i);
-      line-height: $--min-space * (9 - $i) * 1.618;
-      padding: $--min-space * 2 0;
-      font-weight: bold;
+      font-size: ($--min-space / 2) * (14 - $i);
     }
   }
   .header-anchor {
@@ -18,9 +15,9 @@
   }
   code {
     background-color: $--color-3;
-    display: inline-block;
     border-radius: $--min-space;
-    padding: 0 $--min-space;
+    padding: 0 $--min-space + 2;
+    white-space: nowrap;
   }
   pre code {
     background: none;
@@ -54,19 +51,20 @@
   blockquote {
     @include reset();
     position: relative;
-    padding: 50px 60px;
+    padding: 12px 32px;
     background-color: $--color-bg;
     border-radius: $--min-space;
+    color: $--color-gray-light;
     &::before {
       content: open-quote;
       position: absolute;
       font-family: Arial, sans-serif;
       color: $--color-gray-light;
-      left: 20px;
-      top: 12px;
-      font-size: 80px;
+      left: $--min-space * 3;
+      top: $--min-space * 2;
+      font-size: 60px;
       height: 40px;
-      line-height: 80px;
+      line-height: 60px;
       overflow: hidden;
     }
     &::after {
@@ -74,11 +72,11 @@
       position: absolute;
       font-family: Arial, sans-serif;
       color: $--color-gray-light;
-      right: 20px;
-      bottom: 12px;
-      font-size: 80px;
+      right: $--min-space * 3;
+      bottom: 0;
+      font-size: 60px;
       height: 40px;
-      line-height: 80px;
+      line-height: 60px;
       overflow: hidden;
     }
   }

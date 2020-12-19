@@ -72,4 +72,11 @@ $(() => {
   $(document).on('scroll', scrollEvent);
   $(window).on('resize', scrollEvent);
   scrollEvent();
+
+  // 点击事件
+  $('.totonoo--post-list .item').on('click', (e) => {
+    if(e.target.tagName.toLowerCase() !== 'a') {
+      window.location.href = $(e.currentTarget).find('.title a').attr('href');
+    }
+  });
 });

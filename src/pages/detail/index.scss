@@ -12,24 +12,25 @@
     top: -1 * $--min-space * 9;
   }
   .detail-info {
-    padding: 0 0 $--min-space * 3 0;
+    padding: 0 0 $--min-space * 5 0;
     h1 {
-      margin: 0;
-      font-size: $--min-space * 8;
-      line-height: $--min-space * 8 * 1.618;
-      padding: $--min-space * 2 0;
-      font-weight: bold;
+      @include reset();
+      font-size: $--min-space / 2 * 13;
+      font-weight: normal;
     }
     .info {
+      padding-top: $--min-space * 3;
       ul {
         display: flex;
+        flex-wrap: wrap;
         @include reset();
         li {
           padding-right: $--min-space * 4;
-          font-size: $--min-space * 2;
+          font-size: $--min-space * 3;
           color: $--color-4;
           display: flex;
           align-items: center;
+          white-space: nowrap;
           .iconfont {
             margin-right: $--min-space;
             color: $--color-1;
@@ -71,23 +72,5 @@
   }
   .totonoo--page-tree-placeholder .totonoo--page-tree > ul > li {
     margin: 0;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .#{$--prefix}collection-detail {
-    .detail-info {
-      .info {
-        ul {
-          display: flex;
-          flex-wrap: wrap;
-          @include reset();
-          li {
-            width: 50%;
-            box-sizing: border-box;
-          }
-        }
-      }
-    }
   }
 }
