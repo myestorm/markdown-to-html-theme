@@ -31,11 +31,14 @@ import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
 import './index.scss';
 
 import Responsive from '../../assets/scripts/Responsive';
+import ImgBox from '../../assets/scripts/ImgBox';
 import '../../assets/scripts/scroll';
+import '../../assets/scripts/TargetBlank';
 
 $(() => {
   const tree = $('#totonoo--page-tree');
   const header = $('#totonoo--top-header');
   const nav = $('#totonoo--article-nav');
   new Responsive(header, tree, nav);
+  new ImgBox('.totonoo--markdown');
 });

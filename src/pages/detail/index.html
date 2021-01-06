@@ -54,13 +54,16 @@
               </div>
               <article class="totonoo--markdown">
                 <h1>初探typescript</h1>
+                <img src="https://www.totonoo.com/collection/wan-yi-wan-webpack/images/webpack.jpg">
+                <img src="demo/1.jpg">
+                <img src="demo/2.jpg">
                 <h2 id="%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87">
                   <a class="header-anchor" href="#%E5%89%8D%E6%9C%9F%E5%87%86%E5%A4%87">¶</a> 前期准备
                 </h2>
                 <h3>初探typescript</h3>
                 <h4>初探typescript</h4>
                 <h5>初探typescript</h5>
-                <h6>初探typescript</h6>
+                <h6><a href="http://www.baidu.com">初探typescript</a></h6>
                 <p>Typescript出来很久了，也天天被人吹爆了，耳朵都快磨起茧子了。最近项目做的快，有点空闲时间，就打算学一下。学习之前先搜索了2个关键词“为什么要用Typescript”和“为什么不用Typescript”，看了一圈，挺有意思。 总结一下我理解的结论：</p><ol><li>ts是超集可能不准确，没觉得多在哪里？类型检查，装饰器，JS本身也不需要这个，弱语言自有他的灵活性，何苦非得变他；</li><li>ts最终的运行还是要编译成js，但是查了一下开发过程中可以使用ts-node；</li><li>如果是开发网页，我觉得没有必要选择ts，业务本身就是灵活多变的，跟js很搭；</li><li>如果是开发框架和通用组件，是可以选择ts的，毕竟框架都是给别人用的，输入输出应该明确；</li><li>如果是node开发，也可以选择，不会java可以过下java的瘾。</li></ol><p>综上所述，我把学习目标先定一下，用node写一简单的评论系统（Ts + Koa + Typeorm + MongoDB）。如果把这个当成教程来看，是需要有前置条件的，假设会node开发，懂基本的开发流程和语法，对ES6有了解。我使用的win10操作系统。</p><h2 id="%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><a class="header-anchor" href="#%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">¶</a> 搭建开发环境</h2><p>一、新建目录 <code>totonoo_comments</code> 二、在 <code>totonoo_comments</code>&nbsp;下打开cmd，准备开始安装依赖</p>
                 <blockquote><p>但是现在出现了Web Worker，可以为 JavaScript 创造多线程环境。<br>允许主线程创建 Worker 线程，将一些任务分配给后者运行。在主线程运行的同时，Worker 线程在后台运行，两者互不干扰。等到 Worker 线程完成计算任务，再把结果返回给主线程。这样的好处是，一些计算密集型或高延迟的任务，被 Worker 线程负担了，主线程（通常负责 UI 交互）就会很流畅，不会被阻塞或拖慢。但是web worker不能操作DOM。</p></blockquote><div class="code-toolbar"><pre class=" language-powershell"><code class=" language-powershell">npm init -y # 初始化node项目
 npm install typescript --save-dev # 添加typescript

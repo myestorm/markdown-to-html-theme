@@ -2,6 +2,7 @@ import $ from 'jquery';
 import './index.scss';
 import Responsive from '../../assets/scripts/Responsive';
 import '../../assets/scripts/scroll';
+import '../../assets/scripts/TargetBlank';
 
 $(() => {
   const tabs = $('#totonoo--tabs');

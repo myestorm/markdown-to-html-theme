@@ -28,14 +28,16 @@ import 'prismjs/plugins/show-language/prism-show-language';
 
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
 
-import './index.scss';
-
 import Responsive from '../../assets/scripts/Responsive';
 import '../../assets/scripts/scroll';
+import '../../assets/scripts/TargetBlank';
+import './index.scss';
+import ImgBox from '../../assets/scripts/ImgBox';
 
 $(() => {
   const tree = $('#totonoo--page-tree');
   const header = $('#totonoo--top-header');
   const nav = $('#totonoo--article-nav');
   new Responsive(header, tree, nav);
+  new ImgBox('.totonoo--markdown');
 });

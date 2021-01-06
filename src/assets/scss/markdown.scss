@@ -9,6 +9,25 @@ $--margin: $--min-space * 4 0;
       font-size: ($--min-space / 2) * (14 - $i);
     }
   }
+  // task list
+  .#{$--prefix}task-list {
+    @include reset();
+    margin: $--margin;
+    list-style: none;
+    ul, ol {
+      padding: 0 $--min-space * 6;
+      margin: 0;
+    }
+  }
+  .html5-video-player {
+    width: 100%;
+    display: block;
+    margin: $--margin;
+  }
+  .html5-audio-player {
+    display: block;
+    margin: $--margin;
+  }
   .header-anchor {
     display: none;
   }
@@ -115,13 +134,6 @@ $--margin: $--min-space * 4 0;
     padding: 0 0 0 $--min-space * 4;
     ul, ol {
       padding: 0 $--min-space * 4;
-    }
-  }
-  .task-list {
-    padding: 0;
-    list-style: none;
-    ul, ol {
-      padding: 0 $--min-space * 7;
     }
   }
   div.code-toolbar > .toolbar .toolbar-item {

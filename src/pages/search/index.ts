@@ -3,6 +3,7 @@ import './index.scss';
 
 import Responsive from '../../assets/scripts/Responsive';
 import '../../assets/scripts/scroll';
+import '../../assets/scripts/TargetBlank';
 
 export interface TempListItem {
   title: string,
