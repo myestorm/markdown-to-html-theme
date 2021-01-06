@@ -67,6 +67,15 @@
         background-color: $--color-3;
         margin-left: - $--min-space * 2 - 1;
       }
+      &:last-child {
+        &::before {
+          width: 0;
+          height: 80px;
+          overflow: hidden;
+          border-left: $--min-space - 1 $--color-3 dashed;
+          background-color: transparent;
+        }
+      }
       img {
         width: 100%;
         display: block;
@@ -80,15 +89,21 @@
         top: 0;
         font-size: $--min-space * 3 + 2;
         color: $--color-4;
-        &::before {
-          width: $--min-space * 4;
-          height: $--min-space * 4;
+        .i {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: $--min-space * 6;
+          height: $--min-space * 6;
           border-radius: 100%;
-          content: " ";
           position: absolute;
-          right: 0;
-          top: $--min-space;
+          right: -1 * $--min-space;
+          top: 0;
           background-color: $--color-primary;
+          i {
+            color: $--color-white;
+            font-size: $--min-space * 4;
+          }
         }
       }
       .content {

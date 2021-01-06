@@ -8,7 +8,7 @@ $(() => {
   items.each(index => {
     const href = $(items[index]).attr('href');
     const urlParams = new URL(href, window.location.origin);
-    if (hostname !== urlParams.hostname) {
+    if (urlParams.hostname && hostname !== urlParams.hostname) {
       $(items[index]).attr('target', '_blank');
     }
   });

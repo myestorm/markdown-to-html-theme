@@ -4,6 +4,7 @@ import './index.scss';
 import Responsive from '../../assets/scripts/Responsive';
 import '../../assets/scripts/scroll';
 import '../../assets/scripts/TargetBlank';
+import ImgBox from '../../assets/scripts/ImgBox';
 
 $(() => {
   const tree = $('#totonoo--page-tree');
@@ -18,4 +19,5 @@ $(() => {
       $('.timeline-list .items').eq(index).show().siblings().hide();
     }
   });
+  new ImgBox('.timeline-list');
 });
